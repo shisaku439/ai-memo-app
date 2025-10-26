@@ -19,5 +19,8 @@ class DatabaseSeeder extends Seeder
             'name' => 'Test User',
             'email' => 'test@example.com',
         ]);
+
+        // メモのシードを実行
+        $this->call(MemoSeeder::class);
     }
 }

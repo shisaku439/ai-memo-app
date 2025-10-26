@@ -13,6 +13,18 @@ Route::view('dashboard', 'dashboard')
     ->name('dashboard');
 
 Route::middleware(['auth'])->group(function () {
+    // メモ一覧画面
+    Volt::route('memos', 'memos.index')->name('memos.index');
+
+    // メモ作成画面
+    Volt::route('memos/create', 'memos.create')->name('memos.create');
+
+    // メモ詳細画面
+    Volt::route('memos/{memo}', 'memos.show')->name('memos.show');
+
+    // メモ更新画面
+    Volt::route('memos/{memo}/edit', 'memos.edit')->name('memos.edit');
+
     Route::redirect('settings', 'settings/profile');
 
     Volt::route('settings/profile', 'settings.profile')->name('profile.edit');
